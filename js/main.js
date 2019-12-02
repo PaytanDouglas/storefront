@@ -8,7 +8,6 @@ jQuery(document).ready(function($) {
 
 	"use strict";
 
-	
 	var siteMenuClone = function() {
 
 		$('.js-clone-nav').each(function() {
@@ -16,13 +15,12 @@ jQuery(document).ready(function($) {
 			$this.clone().attr('class', 'site-nav-wrap').appendTo('.site-mobile-menu-body');
 		});
 
-
 		setTimeout(function() {
-			
+
 			var counter = 0;
       $('.site-mobile-menu .has-children').each(function(){
         var $this = $(this);
-        
+
         $this.prepend('<span class="arrow-collapse collapsed">');
 
         $this.find('.arrow-collapse').attr({
@@ -34,11 +32,8 @@ jQuery(document).ready(function($) {
           'class' : 'collapse',
           'id' : 'collapseItem' + counter,
         });
-
         counter++;
-
       });
-
     }, 1000);
 
 		$('body').on('click', '.arrow-collapse', function(e) {
@@ -48,8 +43,7 @@ jQuery(document).ready(function($) {
       } else {
         $this.addClass('active');
       }
-      e.preventDefault();  
-      
+      e.preventDefault();
     });
 
 		$(window).resize(function() {
@@ -74,7 +68,7 @@ jQuery(document).ready(function($) {
 				$('body').addClass('offcanvas-menu');
 				$this.addClass('active');
 			}
-		}) 
+		})
 
 		// click outisde offcanvas
 		$(document).mouseup(function(e) {
@@ -85,9 +79,8 @@ jQuery(document).ready(function($) {
 				}
 	    }
 		});
-	}; 
+	};
 	siteMenuClone();
-
 
 	var sitePlusMinus = function() {
 		$('.js-btn-minus').on('click', function(e){
@@ -105,7 +98,6 @@ jQuery(document).ready(function($) {
 	};
 	// sitePlusMinus();
 
-
 	var siteSliderRange = function() {
     $( "#slider-range" ).slider({
       range: true,
@@ -120,9 +112,6 @@ jQuery(document).ready(function($) {
       " - $" + $( "#slider-range" ).slider( "values", 1 ) );
 	};
 	// siteSliderRange();
-
-
-	
 
 	var siteCarousel = function () {
 		if ( $('.nonloop-block-13').length > 0 ) {
@@ -157,8 +146,6 @@ jQuery(document).ready(function($) {
 				e.preventDefault();
 				$('.nonloop-block-13').trigger('prev.owl.carousel');
 			})
-
-			
 		}
 
 		$('.slide-one-item').owlCarousel({
@@ -217,14 +204,10 @@ jQuery(document).ready(function($) {
 		    }
 			});
 		}
-		
 	};
 	siteCarousel();
 
-	
-
 	var siteCountDown = function() {
-
 		$('#date-countdown').countdown('2020/10/10', function(event) {
 		  var $this = $(this).html(event.strftime(''
 		    + '<span class="countdown-block"><span class="label">%w</span> weeks </span>'
@@ -233,7 +216,6 @@ jQuery(document).ready(function($) {
 		    + '<span class="countdown-block"><span class="label">%M</span> min </span>'
 		    + '<span class="countdown-block"><span class="label">%S</span> sec</span>'));
 		});
-				
 	};
 	// siteCountDown();
 
@@ -242,7 +224,6 @@ jQuery(document).ready(function($) {
 		if ( $('.datepicker').length > 0 ) {
 			$('.datepicker').datepicker();
 		}
-
 	};
 	siteDatePicker();
 
@@ -264,16 +245,12 @@ jQuery(document).ready(function($) {
         'scrollTop': $(hash).offset().top - 50
       }, 600, 'easeInOutExpo', function() {
         // window.location.hash = hash;
-
       });
-
     });
   };
   OnePageNavigation();
 
   var siteScroll = function() {
-
-  	
 
   	$(window).scroll(function() {
 
@@ -284,9 +261,7 @@ jQuery(document).ready(function($) {
   		} else {
   			$('.js-sticky-header').removeClass('shrink');
   		}
-
-  	}) 
-
+  	})
   };
   siteScroll();
 
@@ -296,9 +271,7 @@ jQuery(document).ready(function($) {
     responsive: true,
   });
 
-
   var counter = function() {
-		
 		$('#about-section').waypoint( function( direction ) {
 
 			if( direction === 'down' && !$(this.element).hasClass('ftco-animated') ) {
@@ -314,14 +287,10 @@ jQuery(document).ready(function($) {
 					  }, 7000
 					);
 				});
-				
 			}
-
 		} , { offset: '95%' } );
-
 	}
 	counter();
-
 
 	 var siteIstotope = function() {
   	/* activate jquery isotope */
@@ -335,7 +304,7 @@ jQuery(document).ready(function($) {
 	      columnWidth: '.col-sm-3'
 	    });
 	  });
-	  
+
 	  $container.isotope({ filter: '*' });
 
 	    // filter items on button click
@@ -347,7 +316,5 @@ jQuery(document).ready(function($) {
 	    $(this).addClass('active');
 	  });
   }
-
   siteIstotope();
-
 });
